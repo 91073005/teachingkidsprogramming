@@ -35,53 +35,59 @@ public class ChooseYourOwnAdventure
   {
     MessageBox.showMessage(
         "You approach a glowing, green bucket of ooze. Worried that you will get in trouble, you pick up the bucket.");
-   String input = askAQuestion("Do you want to pour the ooze into the 'backyard' or 'toilet'?");;
-    if (input == toilet)
+    String input = askAQuestion("Do you want to pour the ooze into the 'backyard' or 'toilet'?");;
+    if (input == "toilet")
     {
-    //            pourIntoToilet (recipe below) --#12.1
-    //            ------------- Recipe for pourIntoToilet --#12.2
-    //               Tell the user "As you pour the ooze into the toilet it backs up, gurgles, and explodes, covering you in radioactive waste." --#10
-      MessageBox.showMessage("As you pour the ooze into the toilet it backs up, gurgles, and explodes, covering you in radioactive waste.");
-    //               Ask the user "Do you want to train to be a NINJA?  'Yes' or 'HECK YES'?" --#11
-      MessageBox.askForTextInput("Do you want to train to be a NINJA?  'Yes' or 'HECK YES'?")
-    //               If they answer "yes" --#13.1
-      if (input == "Yes")
-      {
-        MessageBox.showMessage("Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!");
-      }
-    //               Otherwise, if they answer "heck yes" --#13.2
-      else if (input == "HECK YES")
-      {
-        MessageBox.showMessage("Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!");
-      }
-    //               Otherwise, if they answer anything else --#13.3
-      else if (input == false)
-      {
-    //                    endStory --#16
-      }
-    //            ------------- End of pourIntoToilet recipe --#12.3
+      //            pourIntoToilet (recipe below) --#12.1
+      pourIntoToilet(input);
     }
     //         Otherwise, if they answer "backyard" --#8.2
-    else if (input == backyard)
+    else if (input == "backyard")
     {
-      
-    //            pourIntoBackyard (recipe below) --#19.1
-    //            ------------- Recipe for pourIntoBackyard --#19.2
-    //                Tell the user "As you walk into the backyard a net scoops you up and a giant takes you to a boiling pot of water." --#17
-    //                Ask the user "As the man starts to prepare you as soup, do you...'Scream' or 'Faint'?" --#18
-    //                If they answer "faint" --#20.1
-    //                        Tell the user "You made a delicious soup! Yum! The end." --#21
-    //                Otherwise, if they answer "scream" --#20.2
-    //                    startStory --#22
-    //                Otherwise, if they answer anything else --#20.3
-    //                    endStory --#23
-    //         ------------- End of pourIntoBackyard recipe --#19.3
+      //            pourIntoBackyard (recipe below) --#19.1
+      //            ------------- Recipe for pourIntoBackyard --#19.2
+      //                Tell the user "As you walk into the backyard a net scoops you up and a giant takes you to a boiling pot of water." --#17
+      MessageBox.showMessage(
+          "As you walk into the backyard a net scoops you up and a giant takes you to a boiling pot of water.");
+      //                Ask the user "As the man starts to prepare you as soup, do you...'Scream' or 'Faint'?" --#18
+      //                If they answer "faint" --#20.1
+      //                        Tell the user "You made a delicious soup! Yum! The end." --#21
+      //                Otherwise, if they answer "scream" --#20.2
+      //                    startStory --#22
+      //                Otherwise, if they answer anything else --#20.3
+      //                    endStory --#23
+      //         ------------- End of pourIntoBackyard recipe --#19.3
     }
     //         Otherwise, if they answer anything else --#8.3
     else if (input == random)
-      {        
-        endStory();
-      }
+    {
+      endStory();
+    }
+  }
+  private static void pourIntoToilet(String input)
+  {
+    //            ------------- Recipe for pourIntoToilet --#12.2
+    MessageBox.showMessage(
+        "As you pour the ooze into the toilet it backs up, gurgles, and explodes, covering you in radioactive waste.");
+    MessageBox.askForTextInput("Do you want to train to be a NINJA?  'Yes' or 'HECK YES'?");
+    //               If they answer "yes" --#13.1
+    if (input == "Yes")
+    {
+      MessageBox
+          .showMessage("Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!");
+    }
+    //               Otherwise, if they answer "heck yes" --#13.2
+    else if (input == "HECK YES")
+    {
+      MessageBox
+          .showMessage("Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!");
+    }
+    //               Otherwise, if they answer anything else --#13.3
+    else if (input == null)
+    {
+      endStory();
+    }
+    //            ------------- End of pourIntoToilet recipe --#12.3
   }
   private static void endStory()
   {
