@@ -59,35 +59,30 @@ public class ChooseYourOwnAdventure
       //         ------------- End of pourIntoBackyard recipe --#19.3
     }
     //         Otherwise, if they answer anything else --#8.3
-    else if (input == random)
+    else
     {
       endStory();
     }
   }
   private static void pourIntoToilet(String input)
   {
-    //            ------------- Recipe for pourIntoToilet --#12.2
     MessageBox.showMessage(
         "As you pour the ooze into the toilet it backs up, gurgles, and explodes, covering you in radioactive waste.");
     MessageBox.askForTextInput("Do you want to train to be a NINJA?  'Yes' or 'HECK YES'?");
-    //               If they answer "yes" --#13.1
     if (input == "Yes")
     {
       MessageBox
           .showMessage("Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!");
     }
-    //               Otherwise, if they answer "heck yes" --#13.2
     else if (input == "HECK YES")
     {
       MessageBox
           .showMessage("Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!");
     }
-    //               Otherwise, if they answer anything else --#13.3
     else if (input == null)
     {
       endStory();
     }
-    //            ------------- End of pourIntoToilet recipe --#12.3
   }
   private static void endStory()
   {
