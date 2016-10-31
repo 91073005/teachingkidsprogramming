@@ -43,16 +43,26 @@ public class ChooseYourOwnAdventure
     //               Tell the user "As you pour the ooze into the toilet it backs up, gurgles, and explodes, covering you in radioactive waste." --#10
       MessageBox.showMessage("As you pour the ooze into the toilet it backs up, gurgles, and explodes, covering you in radioactive waste.");
     //               Ask the user "Do you want to train to be a NINJA?  'Yes' or 'HECK YES'?" --#11
+      MessageBox.askForTextInput("Do you want to train to be a NINJA?  'Yes' or 'HECK YES'?")
     //               If they answer "yes" --#13.1
-    //                    Tell the user "Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!" --#14
+      if (input == "Yes")
+      {
+        MessageBox.showMessage("Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!");
+      }
     //               Otherwise, if they answer "heck yes" --#13.2
-    //                    Tell the user "Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!" --#15
+      else if (input == "HECK YES")
+      {
+        MessageBox.showMessage("Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!");
+      }
     //               Otherwise, if they answer anything else --#13.3
+      else if (input == false)
+      {
     //                    endStory --#16
+      }
     //            ------------- End of pourIntoToilet recipe --#12.3
     }
     //         Otherwise, if they answer "backyard" --#8.2
-    if (input == backyard)
+    else if (input == backyard)
     {
       
     //            pourIntoBackyard (recipe below) --#19.1
@@ -68,7 +78,7 @@ public class ChooseYourOwnAdventure
     //         ------------- End of pourIntoBackyard recipe --#19.3
     }
     //         Otherwise, if they answer anything else --#8.3
-      if (input == random)
+    else if (input == random)
       {        
         endStory();
       }
