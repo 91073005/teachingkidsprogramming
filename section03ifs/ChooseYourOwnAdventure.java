@@ -36,29 +36,32 @@ public class ChooseYourOwnAdventure
     MessageBox.showMessage(
         "You approach a glowing, green bucket of ooze. Worried that you will get in trouble, you pick up the bucket.");
     String input = askAQuestion("Do you want to pour the ooze into the 'backyard' or 'toilet'?");;
-    if (input == "toilet")
+    if ("toilet".equalsIgnoreCase(input))
     {
-      //            pourIntoToilet (recipe below) --#12.1
       pourIntoToilet(input);
     }
-    //         Otherwise, if they answer "backyard" --#8.2
-    else if (input == "backyard")
+    else if ("backyard".equalsIgnoreCase(input))
     {
-      //            pourIntoBackyard (recipe below) --#19.1
-      //            ------------- Recipe for pourIntoBackyard --#19.2
-      //                Tell the user "As you walk into the backyard a net scoops you up and a giant takes you to a boiling pot of water." --#17
-      MessageBox.showMessage(
-          "As you walk into the backyard a net scoops you up and a giant takes you to a boiling pot of water.");
-      //                Ask the user "As the man starts to prepare you as soup, do you...'Scream' or 'Faint'?" --#18
-      //                If they answer "faint" --#20.1
-      //                        Tell the user "You made a delicious soup! Yum! The end." --#21
-      //                Otherwise, if they answer "scream" --#20.2
-      //                    startStory --#22
-      //                Otherwise, if they answer anything else --#20.3
-      //                    endStory --#23
-      //         ------------- End of pourIntoBackyard recipe --#19.3
+      pourIntoBackyard(input);
     }
-    //         Otherwise, if they answer anything else --#8.3
+    else
+    {
+      endStory();
+    }
+  }
+  private static void pourIntoBackyard(String input)
+  {
+    MessageBox.showMessage(
+        "As you walk into the backyard a net scoops you up and a giant takes you to a boiling pot of water.");
+    input = askAQuestion("As the man starts to prepare you as soup, do you...'Scream' or 'Faint'?");
+    if ("faint".equalsIgnoreCase(input))
+    {
+      MessageBox.showMessage("You made a delicious soup! Yum! The end.");
+    }
+    else if ("scream".equalsIgnoreCase(input))
+    {
+      startStory();
+    }
     else
     {
       endStory();
@@ -68,18 +71,18 @@ public class ChooseYourOwnAdventure
   {
     MessageBox.showMessage(
         "As you pour the ooze into the toilet it backs up, gurgles, and explodes, covering you in radioactive waste.");
-    MessageBox.askForTextInput("Do you want to train to be a NINJA?  'Yes' or 'HECK YES'?");
-    if (input == "Yes")
+    input = askAQuestion("Do you want to train to be a NINJA?  'Yes' or 'HECK YES'?");
+    if ("Yes".equalsIgnoreCase(input))
     {
       MessageBox
           .showMessage("Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!");
     }
-    else if (input == "HECK YES")
+    else if ("HECK YES".equalsIgnoreCase(input))
     {
       MessageBox
           .showMessage("Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!");
     }
-    else if (input == null)
+    else
     {
       endStory();
     }
