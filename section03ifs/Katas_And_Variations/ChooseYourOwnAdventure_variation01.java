@@ -17,7 +17,7 @@ public class ChooseYourOwnAdventure_variation01
   {
     tellMoreStory("One day you were walking into a blank void");
     animateStartStory();
-    String action = askAQuestion("Do you want to 'stop' or 'continue' walking?");
+    String action = askAQuestion("Do you want to 'stop' or '" + "continue' walking?");
     if ("stop".equalsIgnoreCase(action))
     {
       stopWalking();
@@ -34,52 +34,54 @@ public class ChooseYourOwnAdventure_variation01
   private static void continueWalking()
   {
     MessageBox.showMessage("You meet with a strange animal.");
-    String input = askAQuestion("Do you want to 'backyard' or 'toilet'?");;
-    if ("toilet".equalsIgnoreCase(input))
+    String input = askAQuestion("Do you want to 'pet' it or 'kill' it?");;
+    if ("kill".equalsIgnoreCase(input))
     {
-      pourIntoToilet(input);
+      killAnimal(input);
     }
-    else if ("backyard".equalsIgnoreCase(input))
+    else if ("pet".equalsIgnoreCase(input))
     {
-      pourIntoBackyard(input);
-    }
-    else
-    {
-      endStory();
-    }
-  }
-  private static void pourIntoBackyard(String input)
-  {
-    MessageBox.showMessage(
-        "As you walk into the backyard a net scoops you up and a giant takes you to a boiling pot of water.");
-    input = askAQuestion("As the man starts to prepare you as soup, do you...'Scream' or 'Faint'?");
-    if ("faint".equalsIgnoreCase(input))
-    {
-      MessageBox.showMessage("You made a delicious soup! Yum! The end.");
-    }
-    else if ("scream".equalsIgnoreCase(input))
-    {
-      startStory();
+      petAnimal(input);
     }
     else
     {
       endStory();
     }
   }
-  private static void pourIntoToilet(String input)
+  private static void killAnimal(String input)
   {
     MessageBox.showMessage(
-        "As you pour the ooze into the toilet it backs up, gurgles, and explodes, covering you in radioactive waste.");
-    input = askAQuestion("Do you want to train to be a NINJA?  'Yes' or 'HECK YES'?");
-    if ("Yes".equalsIgnoreCase(input))
+        "You've killed the strange animal. You have found an artifact covered in animal's dust. You should feel ashamed.");
+    input = askAQuestion("Do you wish to 'take' or 'leave' the artifact?");
+    if ("take".equalsIgnoreCase(input))
     {
       MessageBox
-          .showMessage("Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!");
+          .showMessage("You wake up remembering about your poor dog that had died yesterday from old age...");
+      MessageBox.showMessage("But... YOU killed it... The End");
     }
-    else if ("HECK YES".equalsIgnoreCase(input))
+    else if ("leave".equalsIgnoreCase(input))
     {
-      MessageBox
-          .showMessage("Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!");
+      MessageBox.showMessage("You go insane, knowing you killed your bestfriend, Snowball the Dog.");
+      MessageBox.showMessage("The End =)");
+    }
+    else
+    {
+      endStory();
+    }
+  }
+  private static void petAnimal(String input)
+  {
+    MessageBox.showMessage("After you pet the animal, it becomes your friend. It gives you an artifact.");
+    input = askAQuestion("Do you 'accept' the gift or 'deny' it?");
+    if ("accept".equalsIgnoreCase(input))
+    {
+      MessageBox.showMessage(
+          "You wake up with your pet dog prancing on your bed. You make sure that your pet is FOREVER safe! <3 The End.");
+    }
+    else if ("deny".equalsIgnoreCase(input))
+    {
+      MessageBox.showMessage(
+          "You wake up and your dog it not at your bedside. Your dog sadly ran away, leaving to never come back. </3 The End.");
     }
     else
     {
@@ -88,20 +90,20 @@ public class ChooseYourOwnAdventure_variation01
   }
   private static void endStory()
   {
-    MessageBox.showMessage("You don't know how to read directions. You can't play this game. THE END.");
+    MessageBox.showMessage("You went off the path. You fall into the emptiness. The End.");
   }
   private static void stopWalking()
   {
-    MessageBox.showMessage("You wake up and have a boring day. THE END.");
+    MessageBox.showMessage("You wake up with your pet cat. The End.");
   }
   private static void animateStartStory()
   {
     Tortoise.show();
-    Color color = PenColors.Grays.Black;
+    Color color = PenColors.Whites.Snow;
     for (int i = 0; i < 25; i++)
     {
       Tortoise.getBackgroundWindow().setColor(color);
-      color = PenColors.lighten(color);
+      color = PenColors.darken(color);
       ThreadUtils.sleep(100);
     }
   }
