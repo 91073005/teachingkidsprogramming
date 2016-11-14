@@ -1,22 +1,22 @@
-package org.teachingkidsprogramming.section04mastery;
+package org.teachingkidsprogramming.section04mastery.Katas_And_Variations;
 
 import org.teachingextensions.logo.Tortoise;
 import org.teachingextensions.logo.utils.ColorUtils.ColorWheel;
 import org.teachingextensions.logo.utils.ColorUtils.PenColors;
 
-public class KnottedRing
+public class KnottedRing_Variation01
 {
   public static void main(String[] args)
   {
     Tortoise.show();
     Tortoise.setSpeed(10);
     createColorPalette();
-    for (int i = 0; i < 30; i++)
+    for (int i = 0; i < 400; i++)
     {
       Tortoise.setPenColor(ColorWheel.getNextColor());
       drawOctagonWithOverlap();
-      Tortoise.turn(360 / 30);
-      Tortoise.turn(5);
+      Tortoise.turn(360 / 5);
+      Tortoise.turn(10);
     }
   }
   private static void drawOctagonWithOverlap()
